@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+
+# built libraries and their downloaded PDFs stay local
+文献库/
+library/
+*.pdf
+.DS_Store

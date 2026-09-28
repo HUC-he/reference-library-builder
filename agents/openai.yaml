@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reference Library Builder"
+  short_description: "Build a verifiable reference library from DOIs"
+  default_prompt: "Use $reference-library-builder to resolve these DOIs, download the open-access PDFs, export RIS/ENW/BibTeX, and verify every file."

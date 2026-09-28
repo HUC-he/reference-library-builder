@@ -1,0 +1,22 @@
+name: reference-library-builder
+version: 1.0.0
+description: >
+  Declarative manifest for the reference library workflow. Keeps SKILL.md compact and loads the
+  source/compliance rules and the folder contract only when that stage runs.
+
+# Design note: this skill touches the network and publisher terms, so the compliance rules are
+# loaded before any bulk fetch.
+
+always_load:
+  - references/sources-and-compliance.md
+
+references:
+  on_demand:
+    - condition: deciding the folder contract, file names, index columns, or deduplication
+      path: references/library-layout.md
+
+quality_tools:
+  builder: scripts/refs.py
+  use_when: resolving DOIs, writing citation files, downloading open-access PDFs, or verifying a library
+  purpose: build the library from publisher metadata and check that every PDF is the right paper
+  script_resolution: resolve relative to the skill directory, never the user working directory
